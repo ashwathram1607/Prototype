@@ -38,7 +38,14 @@ const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURICompon
     }
 }
 function getWeatherIcon(condition) {
+    const hour=new Date().getHours();
+    const isNight = hour >= 19 || hour < 6
+    if(condition.toLowerCase()=="clear"){
+        return isNight ? "fa-moon" : "fa-sun";
+    }
     const icons = {
+        "clouds": isNight ? "fa-cloud-moon" : "fa-cloud",
+        "cloudy": isNight ? "fa-cloud-moon" : "fa-cloud",
         Clear: "fa-sun",
         Clouds: "fa-cloud",
         Rain: "fa-cloud-rain",
