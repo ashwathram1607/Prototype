@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Weather Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    >
+</head>
+
+<body class="min-h-screen bg-blue-400 p-6">
+    <header class="bg-yellow-400 text-white p-4 text-center text-2xl font-bold rounded-lg">
+        Weather Dashboard
+    </header>
+    <div class="flex justify-center mt-6 gap-2">
+
+        <input
+            type="text"
+            id="cityInput"
+            placeholder="Enter City Name..."
+            class="p-3 rounded-lg w-full max-w-sm outline-none"
+        >
+
+        <button
+            id="searchBtn"
+            class="bg-yellow-400 text-white px-5 py-3 rounded-lg hover:bg-yellow-500"
+        >
+            <i class="fa-solid fa-magnifying-glass"></i>
+            Search
+        </button>
+
+    </div>
+    <p id="errorMessage" class="text-white text-center mt-3"></p>
+
+    <!-- Current Weather -->
+    <div class="bg-linear-to-r from-blue-400 to-indigo-300 text-white p-8 rounded-lg mt-6 text-center">
+
+        <h2 id="cityName" class="text-3xl font-semibold">
+            Chennai
+        </h2>
+
+        <p class="text-5xl font-bold mt-2">
+
+            <span id="temperature">28°C</span>
+
+            <i
+                id="weatherIcon"
+                class="fa-solid fa-sun text-yellow-300"
+            ></i>
+
+        </p>
+
+        <p id="weatherDescription" class="mt-2">
+            Sunny
+        </p>
+
+    </div>
+
+    <div
+        id="forecast"
+        class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-6"
+    ></div>
+
+    <div class="bg-gray-100 text-gray-600 text-center mt-6 p-4 rounded-lg">
+        Powered By Venkata's Weathers.
+    </div>
+    <script src="weatherdashboard.js"></script>
+
+</body>
+
+</html>
