@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tamil Nadu Food Explorer</title>
+     <script src="https://cdn.tailwindcss.com"></script>
+     
+</head>
+<body class="bg-slate-100 min-h-screen text-slate-900">
+    <header class="bg-orange-600 not-even:text-white p-4 text-center">
+        <h1 class=" text-amber-200 text-2xl font-bold">Tamil Nadu Famous Dishes Explorer</h1>
+        <p class="text-sm text-white">Explore Dishes by Region</p>
+     </header>
+     <main class="max max-w-5xl mx-auto p-6">
+        <div class=" flex flex-wrap gap-4 justify-center mb-6 ">
+            <button onclick="showRegion('south')" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-400">South TN</button>
+            <button onclick="showRegion('delta')" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-400">Delta</button>
+            <button onclick="showRegion('north')" class="bg-blue-500 text-white px-4 py-2 ronded hover:bg-blue-400">North TN</button>
+            <button onclick="showRegion('west')" class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-400">West TN(Kongu)</button>
+
+        </div>
+        <div id="dishList" class="grid md:grid-cols-2 gap-6"></div>
+     </main>
+     <script src="TNfood.js"></script>
+    
+</body>
+</html>
