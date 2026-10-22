@@ -1,0 +1,232 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Super Jump Adventure</title>
+
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+</head>
+
+<body class="min-h-screen bg-gradient-to-br from-slate-950 via-indigo-950 to-purple-950 text-white">
+
+    <main class="mx-auto max-w-6xl px-4 py-6 md:py-10">
+
+        <!-- Header -->
+        <header class="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+
+            <div>
+                <p class="text-xs font-black uppercase tracking-[0.3em] text-yellow-300">
+                    Pixel Platformer
+                </p>
+
+                <h1 class="mt-2 text-3xl font-black sm:text-4xl">
+                    <i class="fa-solid fa-gamepad mr-2 text-yellow-300"></i>
+                    Super Jump Adventure
+                </h1>
+
+                <p class="mt-2 text-sm text-slate-300">
+                    Run, jump, collect coins and reach the finish line!
+                </p>
+            </div>
+
+            <div class="flex gap-2">
+
+                <button
+                    id="soundBtn"
+                    class="rounded-xl border border-white/10 bg-slate-800 px-4 py-3 transition hover:bg-slate-700"
+                    aria-label="Toggle sound"
+                    title="Toggle sound"
+                >
+                    <i id="soundIcon" class="fa-solid fa-volume-high"></i>
+                </button>
+
+                <button
+                    id="restartBtn"
+                    class="rounded-xl bg-indigo-600 px-5 py-3 font-bold transition hover:bg-indigo-500"
+                >
+                    <i class="fa-solid fa-rotate-right mr-2"></i>
+                    Restart
+                </button>
+
+            </div>
+
+        </header>
+
+        <section class="mb-4 grid grid-cols-3 gap-3">
+
+            <div class="rounded-2xl border border-white/10 bg-slate-800/90 p-3 sm:p-5">
+                <p class="text-[10px] font-black tracking-widest text-slate-300 sm:text-xs">
+                    <i class="fa-solid fa-star mr-1 text-yellow-300"></i>
+                    SCORE
+                </p>
+
+                <h2 id="score" class="mt-2 text-2xl font-black sm:text-3xl">0</h2>
+            </div>
+
+            <div class="rounded-2xl border border-white/10 bg-slate-800/90 p-3 sm:p-5">
+                <p class="text-[10px] font-black tracking-widest text-slate-300 sm:text-xs">
+                    <i class="fa-solid fa-coins mr-1 text-yellow-300"></i>
+                    COINS
+                </p>
+
+                <h2 id="coins" class="mt-2 text-2xl font-black sm:text-3xl">0</h2>
+            </div>
+
+            <div class="rounded-2xl border border-white/10 bg-slate-800/90 p-3 sm:p-5">
+                <p class="text-[10px] font-black tracking-widest text-slate-300 sm:text-xs">
+                    <i class="fa-solid fa-heart mr-1 text-red-400"></i>
+                    LIVES
+                </p>
+
+                <h2 id="lives" class="mt-2 text-2xl font-black sm:text-3xl">3</h2>
+            </div>
+
+        </section>
+
+
+        
+        <section class="relative overflow-hidden rounded-2xl border-4 border-slate-700 bg-sky-300 shadow-2xl">
+
+            <canvas
+                id="gameCanvas"
+                width="960"
+                height="540"
+                class="block h-auto w-full"
+            ></canvas>
+
+            <div
+                id="gameOverlay"
+                class="absolute inset-0 flex items-center justify-center bg-slate-950/75 p-4 backdrop-blur-sm"
+            >
+
+                <div class="w-full max-w-lg rounded-3xl border border-white/10 bg-slate-900/95 p-6 text-center shadow-2xl sm:p-10">
+
+                    <div id="overlayIcon" class="mb-4 text-6xl text-yellow-300">
+                        <i class="fa-solid fa-gamepad"></i>
+                    </div>
+
+                    <p class="text-xs font-black uppercase tracking-[0.3em] text-yellow-300">
+                        Ready, Player One?
+                    </p>
+
+                    <h2 id="overlayTitle" class="mt-3 text-3xl font-black sm:text-4xl">
+                        Let's Adventure!
+                    </h2>
+
+                    <p id="overlayMessage" class="mt-4 text-sm leading-6 text-slate-300">
+                        Collect coins, avoid enemies and reach the flag!
+                    </p>
+
+                    <button
+                        id="startBtn"
+                        class="mt-7 rounded-xl bg-gradient-to-r from-yellow-300 to-orange-400 px-8 py-4 font-black text-slate-950 shadow-lg transition hover:scale-105"
+                    >
+                        <i class="fa-solid fa-play mr-2"></i>
+                        Start Game
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Pause Button -->
+        <div class="mt-4 flex justify-center">
+
+            <button
+                id="pauseBtn"
+                disabled
+                class="rounded-xl border border-white/10 bg-slate-800 px-6 py-3 font-bold transition hover:bg-slate-700 disabled:cursor-not-allowed disabled:opacity-40"
+            >
+                <i id="pauseIcon" class="fa-solid fa-pause mr-2"></i>
+                <span id="pauseText">Pause Game</span>
+            </button>
+
+        </div>
+
+        <section class="mt-5 rounded-2xl border border-white/10 bg-slate-800/80 p-5">
+
+            <h3 class="mb-4 text-lg font-black">
+                <i class="fa-solid fa-keyboard mr-2 text-yellow-300"></i>
+                How to Play
+            </h3>
+
+            <div class="grid grid-cols-2 gap-4 text-sm text-slate-300 sm:grid-cols-4">
+
+                <p>
+                    <kbd class="rounded-md border border-slate-600 bg-slate-700 px-2 py-1 font-bold text-white">← →</kbd>
+                    Move
+                </p>
+
+                <p>
+                    <kbd class="rounded-md border border-slate-600 bg-slate-700 px-2 py-1 font-bold text-white">SPACE</kbd>
+                    Jump
+                </p>
+
+                <p>
+                    <kbd class="rounded-md border border-slate-600 bg-slate-700 px-2 py-1 font-bold text-white">P</kbd>
+                    Pause
+                </p>
+
+                <p>
+                    <kbd class="rounded-md border border-slate-600 bg-slate-700 px-2 py-1 font-bold text-white">R</kbd>
+                    Restart
+                </p>
+
+            </div>
+
+        </section>
+
+        <section class="mt-5 flex items-center justify-center gap-4 sm:hidden">
+
+            <button
+                id="leftBtn"
+                aria-label="Move left"
+                class="flex h-14 w-16 items-center justify-center rounded-xl bg-indigo-600 text-xl active:scale-95"
+            >
+                <i class="fa-solid fa-arrow-left"></i>
+            </button>
+
+            <button
+                id="jumpBtn"
+                aria-label="Jump"
+                class="flex h-14 items-center justify-center gap-2 rounded-xl bg-yellow-400 px-6 font-black text-slate-950 active:scale-95"
+            >
+                <i class="fa-solid fa-arrow-up"></i>
+                JUMP
+            </button>
+
+            <button
+                id="rightBtn"
+                aria-label="Move right"
+                class="flex h-14 w-16 items-center justify-center rounded-xl bg-indigo-600 text-xl active:scale-95"
+            >
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
+        </section>
+
+        <footer class="mt-6 text-center text-xs text-slate-400">
+            Built with HTML, Tailwind CSS, JavaScript and Canvas
+        </footer>
+
+    </main>
+
+    
+    <script src="/game.js"></script>
+
+</body>
+</html>
+
