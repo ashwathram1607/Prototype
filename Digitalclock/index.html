@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Digital Clock</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body id="body" class="flex min-h-screen items-center justify-center bg-slate-100 transition-colors duration-300">
+
+    <div id="card" class="w-11/12 max-w-md rounded-3xl bg-white p-8 text-center shadow-xl">
+
+        <i class="fa-solid fa-clock mb-4 text-5xl text-indigo-600"></i>
+
+        <h1 id="title" class="mb-2 text-3xl font-bold text-slate-800">
+            Digital Clock
+        </h1>
+
+        <p id="date" class="mb-6 text-slate-500"></p>
+
+        <h2 id="time" class="mb-8 text-5xl font-bold text-indigo-600">
+            00:00:00
+        </h2>
+
+        <button id="themeButton"
+            class="rounded-xl bg-indigo-600 px-6 py-3 font-semibold text-white hover:bg-indigo-700">
+            <i class="fa-solid fa-moon mr-2"></i>
+            Dark Mode
+        </button>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
