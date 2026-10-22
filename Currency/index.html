@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,17 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Live Currency Dashboard</title>
-
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Font Awesome Icons -->
     <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     >
 
-    <!-- Custom CSS -->
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -34,8 +29,6 @@
             border-bottom: none;
         }
     </style>
-
-    <!-- JavaScript -->
     <script src="currency.js" defer></script>
 </head>
 
@@ -68,9 +61,6 @@
 
         </nav>
     </header>
-
-
-    <!-- Main Content -->
     <main class="mx-auto max-w-7xl px-5 py-8">
 
         <!-- Welcome Section -->
@@ -89,9 +79,6 @@
                 exchange values against the Indian Rupee.
             </p>
         </section>
-
-
-        <!-- Summary Cards -->
         <section class="mb-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
 
             <!-- Base Currency Card -->
@@ -115,8 +102,6 @@
                 </div>
             </div>
 
-
-            <!-- Currency Count Card -->
             <div class="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
                 <div class="flex items-center justify-between">
                     <div>
@@ -136,9 +121,6 @@
                     </div>
                 </div>
             </div>
-
-
-            <!-- Exchange Rate Card -->
             <div class="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
                 <div class="flex items-center justify-between">
                     <div>
@@ -160,9 +142,6 @@
             </div>
 
         </section>
-
-
-        <!-- Currency Converter -->
         <section class="mb-8 overflow-hidden rounded-2xl bg-white shadow-sm">
 
             <div class="gradient-bg px-6 py-5 text-white">
@@ -183,8 +162,6 @@
 
 
             <div class="grid grid-cols-1 gap-5 p-6 md:grid-cols-3">
-
-                <!-- Amount -->
                 <div>
                     <label for="amountInput" class="mb-2 block text-sm font-semibold text-gray-700">
                         Enter Amount
@@ -204,9 +181,6 @@
                         >
                     </div>
                 </div>
-
-
-                <!-- From Currency -->
                 <div>
                     <label for="fromCurrency" class="mb-2 block text-sm font-semibold text-gray-700">
                         From Currency
@@ -224,9 +198,6 @@
                         </select>
                     </div>
                 </div>
-
-
-                <!-- To Currency -->
                 <div>
                     <label for="toCurrency" class="mb-2 block text-sm font-semibold text-gray-700">
                         To Currency
@@ -246,9 +217,6 @@
                 </div>
 
             </div>
-
-
-            <!-- Conversion Result -->
             <div class="mx-6 mb-6 rounded-xl border border-blue-100 bg-blue-50 p-5">
 
                 <div class="flex items-start gap-3">
@@ -270,12 +238,7 @@
             </div>
 
         </section>
-
-
-        <!-- Currency Table -->
         <section class="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm">
-
-            <!-- Table Header -->
             <div class="flex flex-col gap-4 border-b border-gray-100 p-6 md:flex-row md:items-center md:justify-between">
 
                 <div>
