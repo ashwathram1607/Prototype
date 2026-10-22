@@ -1,42 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Digital Clock</title>
-
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <link rel="stylesheet"
+    <title>Live Day & Night Clock</title>
+     <script src="https://cdn.tailwindcss.com"></script>
+     <link
+        rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
-<body id="body" class="flex min-h-screen items-center justify-center bg-slate-100 transition-colors duration-300">
+<body id="body"
+    class="flex min-h-screen items-center justify-center bg-gradient-to-b from-orange-300 to-yellow-100 px-4 transition-colors duration-1000">
 
-    <div id="card" class="w-11/12 max-w-md rounded-3xl bg-white p-8 text-center shadow-xl">
+<main id="card"
+        class="w-full max-w-md rounded-3xl bg-white/90 p-8 text-center shadow-2xl backdrop-blur-lg sm:p-10">
 
-        <i class="fa-solid fa-clock mb-4 text-5xl text-indigo-600"></i>
+<div class="mb-5">
+            <i class="fa-regular fa-clock text-4xl text-indigo-600"></i>
+        </div>
 
-        <h1 id="title" class="mb-2 text-3xl font-bold text-slate-800">
+
+<h1 id="title" class="mb-2 text-3xl font-bold text-slate-800">
             Digital Clock
         </h1>
 
-        <p id="date" class="mb-6 text-slate-500"></p>
+        <p class="mb-6 text-sm text-slate-500">
+            Your day, beautifully displayed
+        </p>
+ <div id="skyScene" class="mb-5">
+    <i id="sunriseIcon"
+                class="fa-solid fa-sun hidden text-7xl text-orange-500">
+            </i>
+             <i id="sunIcon"
+                class="fa-solid fa-sun hidden text-7xl text-yellow-500">
+            </i>
+<i id="sunsetIcon"
+                class="fa-solid fa-cloud-sun hidden text-7xl text-orange-500">
+        </i>
+         <i id="moonIcon"
+                class="fa-solid fa-moon hidden text-7xl text-indigo-400">
+            </i>
 
-        <h2 id="time" class="mb-8 text-5xl font-bold text-indigo-600">
+        </div>
+<p id="greeting" class="mb-5 text-xl font-semibold text-indigo-600">
+            Good Evening!
+        </p>
+ <h2 id="time"
+            class="mb-5 text-5xl font-bold tracking-tight text-indigo-600 sm:text-6xl">
             00:00:00
         </h2>
+<p id="date" class="mb-8 text-base text-slate-500">
+        </p>
+<div class="mb-6 grid grid-cols-2 gap-3">
 
+<div
+                class="rounded-xl border border-orange-200 bg-orange-50 p-4">
+
+                <i class="fa-solid fa-sun mb-2 text-2xl text-orange-500"></i>
+
+                <h3 class="font-semibold text-slate-700">
+                    Morning
+                </h3>
+
+                <p class="mt-1 text-xs text-slate-500">
+                    5 AM – 11 AM
+                </p>
+
+            </div>
+             <div
+                class="rounded-xl border border-yellow-200 bg-yellow-50 p-4">
+
+                <i class="fa-solid fa-sun mb-2 text-2xl text-yellow-500"></i>
+
+                <h3 class="font-semibold text-slate-700">
+                    Afternoon
+                </h3>
+
+                <p class="mt-1 text-xs text-slate-500">
+                    11 AM – 4 PM
+                </p>
+
+            </div>
+            <div
+                class="rounded-xl border border-pink-200 bg-pink-50 p-4">
+
+                <i class="fa-solid fa-cloud-sun mb-2 text-2xl text-pink-500"></i>
+
+                <h3 class="font-semibold text-slate-700">
+                    Evening
+                </h3>
+
+                <p class="mt-1 text-xs text-slate-500">
+                    4 PM – 6 PM
+                </p>
+
+            </div>
+            <div
+                class="rounded-xl border border-indigo-200 bg-indigo-50 p-4">
+
+                <i class="fa-solid fa-moon mb-2 text-2xl text-indigo-500"></i>
+
+                <h3 class="font-semibold text-slate-700">
+                    Night
+                </h3>
+
+                <p class="mt-1 text-xs text-slate-500">
+                    6 PM – 5 AM
+                </p>
+
+            </div>
+
+        </div>
         <button id="themeButton"
-            class="rounded-xl bg-indigo-600 px-6 py-3 font-semibold text-white hover:bg-indigo-700">
+            class="w-full rounded-xl bg-indigo-600 px-6 py-3 font-semibold text-white transition hover:bg-indigo-700">
+
             <i class="fa-solid fa-moon mr-2"></i>
             Dark Mode
-        </button>
 
-    </div>
-
+    </main>
     <script src="script.js"></script>
-
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+         
+
+
