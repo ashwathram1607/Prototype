@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Smart Task Manager</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class"
+        };
+    </script>
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+</head>
+
+<body class="min-h-screen bg-slate-100 text-slate-800 transition-colors duration-300 dark:bg-slate-950 dark:text-white">
+    <div class="min-h-screen">
+
+        <nav class="border-b border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900">
+            <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+
+                <div class="flex items-center gap-3">
+                    <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-indigo-600 text-xl text-white">
+                        <i class="fa-solid fa-list-check"></i>
+                    </div>
+
+                    <div>
+                        <h1 class="text-xl font-bold sm:text-2xl">
+                            TaskFlow
+                        </h1>
+
+                        <p class="text-xs text-slate-500 dark:text-slate-400">
+                            Smart Task Manager
+                        </p>
+                    </div>
+                </div>
+
+                <button
+                    id="themeToggle"
+                    type="button"
+                    aria-label="Toggle dark mode"
+                    class="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 transition hover:bg-slate-100 dark:border-slate-700 dark:hover:bg-slate-800"
+                >
+                    <i id="themeIcon" class="fa-solid fa-moon"></i>
+                </button>
+
+            </div>
+        </nav>
+
+        <main class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+
+            
+            <section class="mb-8 flex flex-col justify-between gap-5 sm:flex-row sm:items-center">
+
+                <div>
+                    <p id="currentDate" class="mb-2 text-sm font-medium text-indigo-600 dark:text-indigo-400"></p>
+
+                    <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">
+                        Manage your tasks
+                    </h2>
+
+                    <p class="mt-2 text-slate-500 dark:text-slate-400">
+                        Plan your day. Complete your goals.
+                    </p>
+                </div>
+
+                <button
+                    id="openTaskModal"
+                    type="button"
+                    class="flex items-center justify-center gap-2 rounded-xl bg-indigo-600 px-5 py-3 font-semibold text-white shadow-lg shadow-indigo-600/20 transition hover:bg-indigo-700"
+                >
+                    <i class="fa-solid fa-plus"></i>
+                    Add New Task
+                </button>
+
+            </section>
+
+            <section class="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+
+                <!-- Total Tasks -->
+                <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm font-medium text-slate-500 dark:text-slate-400">
+                                Total Tasks
+                            </p>
+
+                            <h3 id="totalTasks" class="mt-3 text-3xl font-bold">
+                                0
+                            </h3>
+                        </div>
+
+                        <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-100 text-xl text-indigo-600 dark:bg-indigo-500/20 dark:text-indigo-400">
+                            <i class="fa-solid fa-layer-group"></i>
+                        </div>
+                    </div>
+
+                    <p class="mt-4 text-sm text-slate-500 dark:text-slate-400">
+                        All your tasks
+                    </p>
+
+                </div>
+
+                <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm font-medium text-slate-500 dark:text-slate-400">
+                                Pending Tasks
+                            </p>
+
+                            <h3 id="pendingTasks" class="mt-3 text-3xl font-bold">
+                                0
+                            </h3>
+                        </div>
+
+                        <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-amber-100 text-xl text-amber-600 dark:bg-amber-500/20 dark:text-amber-400">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                    </div>
+
+                    <p class="mt-4 text-sm text-slate-500 dark:text-slate-400">
+                        Tasks to complete
+                    </p>
+
+                </div>
+
+                <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm font-medium text-slate-500 dark:text-slate-400">
+                                Completed Tasks
+                            </p>
+
+                            <h3 id="completedTasks" class="mt-3 text-3xl font-bold">
+                                0
+                            </h3>
+                        </div>
+
+                        <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-100 text-xl text-emerald-600 dark:bg-emerald-500/20 dark:text-emerald-400">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+                    </div>
+
+                    <p class="mt-4 text-sm text-slate-500 dark:text-slate-400">
+                        Successfully completed
+                    </p>
+
+                </div>
+
+
+                <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm font-medium text-slate-500 dark:text-slate-400">
+                                High Priority
+                            </p>
+
+                            <h3 id="highPriorityTasks" class="mt-3 text-3xl font-bold">
+                                0
+                            </h3>
+                        </div>
+
+                        <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-rose-100 text-xl text-rose-600 dark:bg-rose-500/20 dark:text-rose-400">
+                            <i class="fa-solid fa-fire"></i>
+                        </div>
+                    </div>
+
+                    <p class="mt-4 text-sm text-slate-500 dark:text-slate-400">
+                        Pending high-priority tasks
+                    </p>
+
+                </div>
+
+            </section>
+
+            <section class="mb-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+
+                <div class="mb-5 flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
+
+                    <div>
+                        <h3 class="text-lg font-bold">
+                            Your Progress
+                        </h3>
+
+                        <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">
+                            Track your daily productivity.
+                        </p>
+                    </div>
+
+                    <div class="text-left sm:text-right">
+                        <span id="progressPercentage" class="text-3xl font-bold text-indigo-600 dark:text-indigo-400">
+                            0%
+                        </span>
+                    </div>
+
+                </div>
+
+                <div class="h-3 overflow-hidden rounded-full bg-slate-200 dark:bg-slate-800">
+                    <div
+                        id="progressBar"
+                        class="h-full rounded-full bg-indigo-600 transition-all duration-500"
+                        style="width: 0%"
+                    ></div>
+                </div>
+
+                <p id="progressSummary" class="mt-3 text-sm text-slate-500 dark:text-slate-400">
+                    Start adding tasks to track your progress.
+                </p>
+
+            </section>
+
+
+            <!-- Task List Section -->
+            <section class="rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
+
+                <!-- Section Header -->
+                <div class="border-b border-slate-200 p-5 dark:border-slate-800 sm:p-6">
+
+                    <div class="mb-5 flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
+
+                        <div>
+                            <h3 class="text-xl font-bold">
+                                My Tasks
+                            </h3>
+
+                            <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">
+                                Organize and manage your work.
+                            </p>
+                        </div>
+
+                        <span id="visibleTaskCount" class="w-fit rounded-full bg-indigo-100 px-3 py-1 text-sm font-semibold text-indigo-700 dark:bg-indigo-500/20 dark:text-indigo-300">
+                            0 tasks
+                        </span>
+
+                    </div>
+
+
+                    <!-- Search and Filters -->
+                    <div class="grid grid-cols-1 gap-3 md:grid-cols-3">
+
+                        <!-- Search -->
+                        <div class="relative md:col-span-1">
+                            <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+
+                            <input
+                                type="text"
+                                id="searchInput"
+                                placeholder="Search your tasks..."
+                                class="w-full rounded-xl border border-slate-200 bg-slate-50 py-3 pl-11 pr-4 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:border-slate-700 dark:bg-slate-800"
+                            >
+                        </div>
+
+
+                        <!-- Status Filter -->
+                        <select
+                            id="statusFilter"
+                            class="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:border-slate-700 dark:bg-slate-800"
+                        >
+                            <option value="all">All Tasks</option>
+                            <option value="pending">Pending</option>
+                            <option value="completed">Completed</option>
+                        </select>
+
+
+                        <!-- Priority Filter -->
+                        <select
+                            id="priorityFilter"
+                            class="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:border-slate-700 dark:bg-slate-800"
+                        >
+                            <option value="all">All Priorities</option>
+                            <option value="high">High Priority</option>
+                            <option value="medium">Medium Priority</option>
+                            <option value="low">Low Priority</option>
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Task List -->
+                <div id="taskList" class="divide-y divide-slate-100 dark:divide-slate-800">
+
+                    <!-- JavaScript will render tasks here -->
+
+                </div>
+
+            </section>
+
+
+            <!-- Footer -->
+            <footer class="py-8 text-center text-sm text-slate-500 dark:text-slate-400">
+                <p>
+                    Made with
+                    <i class="fa-solid fa-heart text-rose-500"></i>
+                    using HTML, Tailwind CSS and JavaScript.
+                </p>
+            </footer>
+
+        </main>
+
+    </div>
+
+    <div
+        id="taskModal"
+        class="fixed inset-0 z-50 hidden items-center justify-center overflow-y-auto bg-slate-950/60 p-4 backdrop-blur-sm"
+    >
+
+        <div class="my-auto w-full max-w-lg rounded-2xl bg-white p-6 shadow-2xl dark:bg-slate-900 sm:p-8">
+            <div class="mb-6 flex items-center justify-between">
+
+                <div>
+                    <h2 id="modalTitle" class="text-2xl font-bold">
+                        Add New Task
+                    </h2>
+
+                    <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">
+                        Fill in the details below.
+                    </p>
+                </div>
+
+                <button
+                    id="closeTaskModal"
+                    type="button"
+                    aria-label="Close modal"
+                    class="flex h-10 w-10 items-center justify-center rounded-xl text-slate-500 transition hover:bg-slate-100 dark:hover:bg-slate-800"
+                >
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+
+            </div>
+
+            <form id="taskForm" class="space-y-5">
+
+                <input type="hidden" id="taskId">
+
+                <div>
+                    <label for="taskTitle" class="mb-2 block text-sm font-semibold">
+                        Task Title <span class="text-rose-500">*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        id="taskTitle"
+                        placeholder="Example: Complete React project"
+                        required
+                        maxlength="100"
+                        class="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:border-slate-700 dark:bg-slate-800"
+                    >
+                </div>
+
+
+                <div>
+                    <label for="taskDescription" class="mb-2 block text-sm font-semibold">
+                        Description
+                    </label>
+
+                    <textarea
+                        id="taskDescription"
+                        rows="3"
+                        maxlength="500"
+                        placeholder="Enter task details..."
+                        class="w-full resize-none rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:border-slate-700 dark:bg-slate-800"
+                    ></textarea>
+                </div>
+
+                <div>
+                    <label for="taskDate" class="mb-2 block text-sm font-semibold">
+                        Due Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="taskDate"
+                        class="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:border-slate-700 dark:bg-slate-800"
+                    >
+                </div>
+
+                <div>
+                    <label for="taskPriority" class="mb-2 block text-sm font-semibold">
+                        Priority
+                    </label>
+
+                    <select
+                        id="taskPriority"
+                        class="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:border-slate-700 dark:bg-slate-800"
+                    >
+                        <option value="low">Low Priority</option>
+                        <option value="medium" selected>Medium Priority</option>
+                        <option value="high">High Priority</option>
+                    </select>
+                </div>
+
+                <div class="flex flex-col-reverse gap-3 pt-2 sm:flex-row">
+
+                    <button
+                        id="cancelTask"
+                        type="button"
+                        class="flex-1 rounded-xl border border-slate-200 px-5 py-3 font-semibold transition hover:bg-slate-100 dark:border-slate-700 dark:hover:bg-slate-800"
+                    >
+                        Cancel
+                    </button>
+
+                    <button
+                        id="saveTaskButton"
+                        type="submit"
+                        class="flex-1 rounded-xl bg-indigo-600 px-5 py-3 font-semibold text-white transition hover:bg-indigo-700"
+                    >
+                        <i class="fa-solid fa-plus mr-2"></i>
+                        Save Task
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <div
+        id="toast"
+        role="status"
+        aria-live="polite"
+        class="fixed bottom-5 right-5 z-[60] flex translate-y-5 items-center gap-3 rounded-xl bg-slate-900 px-5 py-4 text-white opacity-0 shadow-2xl transition-all duration-300 dark:bg-white dark:text-slate-900"
+    >
+        <i id="toastIcon" class="fa-solid fa-circle-check text-emerald-400"></i>
+
+        <span id="toastMessage">
+            Task saved successfully!
+        </span>
+    </div>
+
+
+    
+    <script src="./script.js"></script>
+
+</body>
+</html>
