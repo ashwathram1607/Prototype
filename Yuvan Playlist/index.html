@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Yuvan Drugs Playlist</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex items-center justify-center min-h-screen relative bg-cover bg-center bg-no-repeat bg-blend-darken"
+      style="background-image: url('images/U1.jpg');">
+
+
+  <div class="bg-gray-800 bg-opacity-80 text-white p-6 rounded-lg shadow-lg w-96 text-center relative z-10">
+    <h2 id="songTitle" class="text-xl font-bold mb-2">Yuvan Drugs</h2>
+    <audio id="audio"></audio>
+
+    <div class="mt-4 flex justify-center gap-4">
+      <button id="prevBtn" class="px-4 py-2 bg-blue-500 rounded">Prev</button>
+      <button id="playBtn" class="px-4 py-2 bg-green-500 rounded">Play</button>
+      <button id="nextBtn" class="px-4 py-2 bg-blue-500 rounded">Next</button>
+    </div>
+
+    <input id="progress" type="range" value="0" class="w-full mt-4">
+
+    <div class="flex justify-between text-sm mt-2">
+      <span id="currentTime">0:00</span>
+      <span id="duration">0:00</span>
+    </div>
+  </div>
+
+  <script src="musicplayer.js"></script>
+</body>
+</html>
