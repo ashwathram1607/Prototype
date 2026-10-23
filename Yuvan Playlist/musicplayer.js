@@ -13,7 +13,7 @@ const playlist = [
   { title: "IRAVA PAGALA", src: "songs/Irava-Pagala.mp3" },
   { title: "En Anbae", src: "songs/En-Anbae.mp3" },
   { title: "Chinna-Chinnathai", src: "songs/Chinna-Chinnathai.mp3" },
-  { title: "Mun Panniya", src: "songs/Mun-Panniyaa.mp3" },
+  { title: "Mun Paniya", src: "songs/Mun-Paniyaa.mp3" },
   { title: "Ninaithu Ninaithu Parthen", src: "songs/Ninaithu-Ninaithu-Parthen.mp3" },
   { title: "Kanaa-Kaanum-Kalangal", src: "songs/Kanaa-Kaanum.mp3" },
   { title: "ORU NAALIL (PUDHUPETTAI)", src: "songs/Oru Naalil.mp3" },
