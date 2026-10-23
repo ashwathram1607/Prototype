@@ -10,6 +10,7 @@ const songTitle = document.getElementById("songTitle");
 const playlist = [
   { title: "VATTHIKUCHI PATHIKATHU (DHEENA)", src: "songs/Vathikuchi.mp3" },
   { title: "SOLLAMAL (DHEENA)", src: "songs/sollamal.mp3" },
+  { title: "Senyoreeta", src: "songs/Senyoreeta.mp3" },
   { title: "IRAVA PAGALA", src: "songs/Irava-Pagala.mp3" },
   { title: "Ninaithu Ninaithu Parthen", src: "songs/Ninaithu-Ninaithu-Parthen.mp3" },
   { title: "Kanaa-Kaanum-Kalangal", src: "songs/Kanaa-Kaanum.mp3" },
@@ -28,7 +29,7 @@ const playlist = [
   { title: "Jalsa-Remix (CHENNAI 600028)", src: "songs/Jalsa-Remix.mp3" },
   { title: "Patheyam Pedikudhu", src: "songs/Paitheyam.mp3" },
   { title: "Thakuthe", src: "songs/Thakuthe.mp3" },
-  
+
 ];
 
 let currentIndex = 0;
