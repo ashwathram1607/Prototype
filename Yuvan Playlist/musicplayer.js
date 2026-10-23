@@ -6,10 +6,9 @@ const progress = document.getElementById("progress");
 const currentTimeEl = document.getElementById("currentTime");
 const durationEl = document.getElementById("duration");
 const songTitle = document.getElementById("songTitle");
-
 const playlist = [
   { title: "VATTHIKUCHI PATHIKATHU (DHEENA)", src: "songs/Vathikuchi.mp3" },
-  { title: "SOLLAMAL (DHEENA)", src: "songs/sollamal.mp3" },
+  { title: "SOLLAMAL (DHEENA)", src: "songs/Sollamal.mp3" },
   { title: "Senyoreeta", src: "songs/Senyoreeta.mp3" },
   { title: "IRAVA PAGALA", src: "songs/Irava-Pagala.mp3" },
   { title: "Ninaithu Ninaithu Parthen", src: "songs/Ninaithu-Ninaithu-Parthen.mp3" },
