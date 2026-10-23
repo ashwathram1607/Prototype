@@ -21,7 +21,7 @@ const playlist = [
   { title: "EN KADHAL SOLLA (PAIYAA)", src: "songs/En-Kadhal-Solla.mp3" },
   { title: "Idhu Varai (Goa)", src: "songs/Idhu-Varai.mp3" },
   { title: "YELA YELA (ARINTHUM ARIYAMALUM)", src: "songs/Yela Yela.mp3" },
-  { title: "VENMEGAM (YAARADI NEE MOHINI)", src: "songs/venmegam.mp3" },
+  { title: "VENMEGAM (YAARADI NEE MOHINI)", src: "songs/Venmegam.mp3" },
   { title: "IRAGAI POLE (NAAN MAHAN ALLA)", src: "songs/Iragai-Pole.mp3" },
   { title: "NEEDHAANE (SARVAM)", src: "songs/Needhane.mp3" },
   { title: "KADHAL VAITHU KADHAL VAITHIU", src: "songs/Kadhal Vaithu.mp3" },
