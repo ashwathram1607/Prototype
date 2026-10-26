@@ -2,34 +2,341 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Yuvan Drugs Playlist</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yuvan Drugs | Cassette Music Player</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  >
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      background:
+        radial-gradient(ellipse at top left, #083344 0%, transparent 40%),
+        radial-gradient(ellipse at bottom right, #172554 0%, transparent 35%),
+        #030606;
+
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .ambient-glow {
+      position: fixed;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: #06b6d4;
+      filter: blur(150px);
+      opacity: 0.12;
+      pointer-events: none;
+    }
+    .player-card {
+      background: linear-gradient(145deg, #101817, #030707 75%);
+      border: 1px solid rgba(250, 204, 21, 0.6);
+      box-shadow:
+        0 0 35px rgba(6, 182, 212, 0.12),
+        0 0 70px rgba(0, 0, 0, 0.8),
+        inset 0 0 25px rgba(255, 255, 255, 0.02);
+    }
+    .cassette {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, #facc15, #a16207 55%, #eab308);
+      border: 5px solid #202a2a;
+      box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.65),
+        inset 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+    .cassette::before {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      border: 1px solid rgba(0, 0, 0, 0.25);
+      border-radius: 8px;
+      pointer-events: none;
+    }
+    .screw {
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: #273030;
+      border: 2px solid #647171;
+      box-shadow: inset 0 0 3px black;
+    }
+    @keyframes spinReel {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .cassette-reel {
+      animation: spinReel 2s linear infinite;
+      animation-play-state: paused;
+    }
+
+    .cassette-playing .cassette-reel {
+      animation-play-state: running;
+    }
+    .reel-center {
+      background: repeating-conic-gradient(
+        #111827 0deg 15deg,
+        #374151 15deg 30deg
+      );
+    }
+
+    .tape-window {
+      background: linear-gradient(
+        90deg,
+        #050b0d,
+        #164e63,
+        #0891b2,
+        #164e63,
+        #050b0d
+      );
+      box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8);
+    }
+    .crystal {
+    width: 13px;
+    height: 25px;
+    flex-shrink: 0;
+    background: linear-gradient(
+        135deg,
+        #ecfeff 0%,
+        #67e8f9 20%,
+        #0891b2 55%,
+        #164e63 100%
+    );
+    clip-path: polygon(
+        50% 0%,
+        100% 25%,
+        80% 75%,
+        55% 100%,
+        10% 80%,
+        0% 30%
+    );
+    filter: drop-shadow(0 0 5px #22d3ee);
+    opacity: 0.85;
+}
+
+.crystal-one { height: 20px; transform: rotate(-15deg); }
+.crystal-two { height: 30px; width: 15px; }
+.crystal-three { height: 24px; transform: rotate(12deg); }
+.crystal-four { height: 32px; width: 14px; }
+.crystal-five { height: 22px; transform: rotate(-10deg); }
+.crystal-six { height: 27px; width: 12px; }
+
+@keyframes crystalMove {
+    0%, 100% {
+        translate: 0 3px;
+        scale: 0.95;
+        filter: drop-shadow(0 0 4px #22d3ee);
+    }
+    50% {
+        translate: 0 -4px;
+        scale: 1.1;
+        filter: drop-shadow(0 0 10px #06b6d4);
+    }
+}
+
+#drugsVisual.crystals-active .crystal {
+    animation: crystalMove 0.6s ease-in-out infinite alternate;
+}
+
+#drugsVisual.crystals-active .crystal:nth-child(2) { animation-delay: 0.1s; }
+#drugsVisual.crystals-active .crystal:nth-child(3) { animation-delay: 0.2s; }
+#drugsVisual.crystals-active .crystal:nth-child(4) { animation-delay: 0.15s; }
+#drugsVisual.crystals-active .crystal:nth-child(5) { animation-delay: 0.3s; }
+#drugsVisual.crystals-active .crystal:nth-child(6) { animation-delay: 0.25s; }
+    
+  </style>
 </head>
-<body class="flex items-center justify-center min-h-screen relative bg-cover bg-center bg-no-repeat bg-blend-darken"
-      style="background-image: url('images/U1.jpg');">
+<body class="min-h-screen flex items-center justify-center px-4 py-8 text-white">
+  <div class="ambient-glow top-0 left-0"></div>
+  <div class="ambient-glow bottom-0 right-0"></div>
+  <main class="player-card relative z-10 w-full max-w-xl rounded-3xl p-5 sm:p-8">
+    <header class="mb-6 text-center">
+      <div class="mb-2 text-yellow-400">
+        <i class="fa-solid fa-crown text-2xl"></i>
+      </div>
+        
+      
 
+      <p class="mt-3 text-xs font-bold uppercase tracking-[0.3em] text-cyan-400">
+        Yuvan Shankar Raja Playlist
+      </p>
+    </header>
+    <section id="cassette" class="cassette cassette-playing rounded-2xl p-4 sm:p-5">
+      <div class="mb-4 flex items-center justify-between">
+        <div class="screw"></div>
 
-  <div class="bg-gray-800 bg-opacity-80 text-white p-6 rounded-lg shadow-lg w-96 text-center relative z-10">
-    <h2 id="songTitle" class="text-xl font-bold mb-2">Yuvan Drugs</h2>
-    <audio id="audio"></audio>
+        <span class="text-xs font-black tracking-widest text-black">
+          SIDE A
+        </span>
 
-    <div class="mt-4 flex justify-center gap-4">
-      <button id="prevBtn" class="px-4 py-2 bg-blue-500 rounded">Prev</button>
-      <button id="playBtn" class="px-4 py-2 bg-green-500 rounded">Play</button>
-      <button id="nextBtn" class="px-4 py-2 bg-blue-500 rounded">Next</button>
-    </div>
+        <div class="screw"></div>
+      </div>
+     <div class="relative mb-4 h-36 w-full overflow-hidden rounded-md border border-yellow-950/50 bg-yellow-400/30">
 
-    <input id="progress" type="range" value="0" class="w-full mt-4">
+<img
+    src="images/U1.jpg"
+    alt="Yuvan Shankar Raja"
+    class="absolute inset-y-0 left-0 h-full w-1/3 object-cover object-center"
+>
 
-    <div class="flex justify-between text-sm mt-2">
-      <span id="currentTime">0:00</span>
-      <span id="duration">0:00</span>
-    </div>
-  </div>
+<div class="absolute inset-y-0 right-0 flex w-2/3 flex-col justify-center overflow-hidden pl-4 pr-2">
+    <h2 class="break-words text-lg font-black italic text-black sm:text-3xl">
+        Yuvan Playlist
+    </h2>
 
+    <p class="mt-2 break-words text-[10px] font-bold tracking-wider text-gray-900 sm:text-xs">
+        MUSIC HITS DIFFERENT
+    </p>
+</div>
+
+</div>
+
+</section>
+
+     
+      </div>
+      <div class="flex items-center justify-center gap-3 rounded-xl border-4 border-gray-900 bg-gray-950 p-3 sm:p-4">
+        <div class="cassette-reel flex h-16 w-16 sm:h-20 sm:w-20 shrink-0 items-center justify-center rounded-full border-4 border-cyan-400 bg-gray-900 shadow-[0_0_15px_rgba(6,182,212,0.4)]">
+
+          <div class="reel-center flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full border-4 border-gray-500">
+
+            <div class="h-4 w-4 rounded-full bg-cyan-400"></div>
+
+          </div>
+
+        </div>
+        <div class="tape-window relative h-16 sm:h-20 flex-1 overflow-hidden rounded-md border-2 border-gray-700">
+            <div class="absolute inset-0 flex items-center justify-center">
+        <i class="fa-solid fa-wave-square text-2xl text-cyan-300/40"></i>
+          </div>
+          <div
+    id="drugsVisual"
+    class="absolute inset-0 z-10 flex items-center justify-center gap-1 overflow-hidden"
+>
+ <div class="crystal crystal-one"></div>
+    <div class="crystal crystal-two"></div>
+    <div class="crystal crystal-three"></div>
+    <div class="crystal crystal-four"></div>
+    <div class="crystal crystal-five"></div>
+    <div class="crystal crystal-six"></div>
+</div>
+
+        </div>
+        <div class="cassette-reel flex h-16 w-16 sm:h-20 sm:w-20 shrink-0 items-center justify-center rounded-full border-4 border-cyan-400 bg-gray-900 shadow-[0_0_15px_rgba(6,182,212,0.4)]">
+          <div class="reel-center flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full border-4 border-gray-500">
+            <div class="h-4 w-4 rounded-full bg-cyan-400"></div>
+          </div>
+
+        </div>
+      </div>
+      <div class="mt-4 flex items-center justify-between">
+        <div class="screw"></div>
+        <p class="text-xs font-black tracking-[0.25em] text-black">
+         Modern Maestro YUVAN SHANKAR RAJA
+        </p>
+        <span class="text-xs font-black text-black">YD-001</span>
+      </div>
+
+    </section>
+    <section class="mt-7 text-center">
+      <div class="mb-2 flex items-center justify-center gap-2">
+        <span id="statusDot" class="h-2 w-2 rounded-full bg-gray-500"></span>
+        <span id="statusText" class="text-xs font-bold uppercase tracking-widest text-gray-400">
+          Ready to play
+        </span>
+      </div>
+      <h2 id="songTitle" class="break-words text-lg sm:text-xl font-bold text-white">
+        Yuvan Drugs
+      </h2>
+
+      <p class="mt-1 text-sm text-gray-400">
+        Yuvan Shankar Raja
+      </p>
+    </section>
+    <audio id="audio" preload="metadata"></audio>
+    <section class="mt-6">
+      <input
+        id="progress"
+        type="range"
+        min="0"
+        max="100"
+        step="0.1"
+        value="0"
+        aria-label="Song progress"
+        class="h-2 w-full accent-yellow-400"
+      >
+      <div class="mt-2 flex justify-between text-sm text-gray-400">
+        <span id="currentTime">0:00</span>
+        <span id="duration">0:00</span>
+      </div>
+    </section>
+    <section class="mt-6 flex items-center justify-center gap-5 sm:gap-8">
+      <button
+        id="prevBtn"
+        type="button"
+        aria-label="Previous song"
+        title="Previous song"
+        class="control-button cyan-button flex h-12 w-12 items-center justify-center rounded-full border-2 border-cyan-400 bg-gray-950 text-xl text-cyan-400"
+      >
+        <i class="fa-solid fa-backward-step"></i>
+      </button>
+      <button
+        id="playBtn"
+        type="button"
+        aria-label="Play"
+        title="Play/Pause"
+        class="control-button play-button flex h-16 w-16 items-center justify-center rounded-full border-4 border-yellow-300 bg-yellow-400 text-2xl text-black"
+      >
+        <i class="fa-solid fa-play"></i>
+      </button>
+      <button
+        id="nextBtn"
+        type="button"
+        aria-label="Next song"
+        title="Next song"
+        class="control-button cyan-button flex h-12 w-12 items-center justify-center rounded-full border-2 border-cyan-400 bg-gray-950 text-xl text-cyan-400"
+      >
+        <i class="fa-solid fa-forward-step"></i>
+      </button>
+    </section>
+    <section class="mt-6 flex items-center justify-center gap-3">
+      <i class="fa-solid fa-volume-low text-gray-400"></i>
+      <input
+        id="volume"
+        type="range"
+        min="0"
+        max="1"
+        step="0.01"
+        value="0.8"
+        aria-label="Volume"
+        class="w-40 accent-yellow-400"
+      >
+      <i class="fa-solid fa-volume-high text-gray-400"></i>
+
+    </section>
+    <footer class="mt-7 border-t border-gray-800 pt-5 text-center">
+
+      <p class="text-xs font-bold tracking-[0.2em] text-cyan-400">
+        NOT JUST SONGS
+        <span class="mx-1 text-yellow-400">✦</span>
+        IT'S A FEELING
+      </p>
+
+      <p class="mt-3 text-[10px] tracking-[0.3em] text-gray-600">
+        YUVAN DRUGS · CASSETTE EDITION
+      </p>
+    </footer>
+  </main>
   <script src="musicplayer.js"></script>
 </body>
 </html>
