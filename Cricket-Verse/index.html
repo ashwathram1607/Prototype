@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CRICKETVERSE | Cricket History Explorer</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body class="bg-[#080d13] font-['Inter'] text-white">
+
+    <!-- NAVBAR -->
+    <nav class="border-b border-white/10 bg-[#0c141d]">
+
+        <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-5 py-5">
+
+            <a href="#" class="flex items-center gap-3">
+
+                <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-green-500 text-2xl text-black">
+                    <i class="fa-solid fa-baseball-bat-ball"></i>
+                </div>
+
+                <div>
+                    <h1 class="text-2xl font-black tracking-wider">
+                        CRICKET<span class="text-green-400">VERSE</span>
+                    </h1>
+
+                    <p class="text-xs tracking-widest text-slate-400">
+                        THE WORLD OF CRICKET
+                    </p>
+                </div>
+
+            </a>
+
+            <div class="flex flex-wrap items-center gap-5 text-sm font-medium text-slate-300">
+
+                <a href="#history" class="transition hover:text-green-400">History</a>
+
+                <a href="#formats" class="transition hover:text-green-400">Formats</a>
+
+                <a href="#rules" class="transition hover:text-green-400">Rules</a>
+
+                <a href="#explore" class="transition hover:text-green-400">Explore</a>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <!-- HERO SECTION -->
+    <header class="relative overflow-hidden">
+
+        <div class="absolute inset-0 bg-gradient-to-br from-green-950/50 via-[#080d13] to-[#080d13]"></div>
+
+        <div class="relative mx-auto grid max-w-7xl items-center gap-12 px-5 py-20 md:grid-cols-2">
+
+            <div>
+
+                <span class="inline-flex items-center gap-2 rounded-full border border-green-400/30 bg-green-400/10 px-4 py-2 text-xs font-bold uppercase tracking-widest text-green-400">
+
+                    <i class="fa-solid fa-globe"></i>
+
+                    Explore Cricket History
+
+                </span>
+
+                <h2 class="mt-7 text-5xl font-black leading-tight sm:text-6xl">
+
+                    A Legacy Of
+
+                    <span class="block text-green-400">
+                        Cricket.
+                    </span>
+
+                </h2>
+
+                <p class="mt-6 max-w-xl leading-8 text-slate-400">
+
+                    Discover cricket's journey — from its early origins to the modern era.
+                    Explore legendary players, international teams, tournaments, records and the laws of the game.
+
+                </p>
+
+                <div class="mt-9 flex flex-wrap gap-4">
+
+                    <a href="#history"
+                        class="rounded-xl bg-green-500 px-7 py-4 font-bold text-black transition hover:bg-green-400">
+
+                        Explore History
+
+                        <i class="fa-solid fa-arrow-right ml-2"></i>
+
+                    </a>
+
+                    <a href="#formats"
+                        class="rounded-xl border border-white/15 px-7 py-4 font-bold transition hover:bg-white/10">
+
+                        Discover Formats
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- HERO VISUAL -->
+            <div class="relative flex min-h-80 items-center justify-center">
+
+                <div class="absolute h-72 w-72 rounded-full border border-green-400/10"></div>
+
+                <div class="absolute h-60 w-60 rounded-full border border-green-400/20"></div>
+
+                <div class="flex h-48 w-48 items-center justify-center rounded-full bg-gradient-to-br from-green-400 to-green-900 text-8xl shadow-2xl shadow-green-500/20">
+
+                    <i class="fa-solid fa-baseball text-[#101a14]"></i>
+
+                </div>
+
+                <div class="absolute right-2 top-8 rounded-xl border border-white/10 bg-[#131e28] p-4 sm:right-8">
+
+                    <p class="text-xs text-slate-400">The Spirit of Cricket</p>
+
+                    <p class="mt-1 font-bold text-green-400">
+                        Since Generations
+                    </p>
+
+                </div>
+
+                <div class="absolute bottom-5 left-2 rounded-xl border border-white/10 bg-[#131e28] p-4 sm:left-8">
+
+                    <i class="fa-solid fa-trophy text-yellow-400"></i>
+
+                    <span class="ml-2 font-bold">Legends & Records</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- QUICK OVERVIEW -->
+    <section class="mx-auto max-w-7xl px-5 py-12">
+
+        <div class="grid grid-cols-2 gap-4 lg:grid-cols-4">
+
+            <div class="rounded-2xl border border-white/10 bg-[#111a24] p-6">
+
+                <i class="fa-solid fa-calendar-days text-2xl text-green-400"></i>
+
+                <h3 class="mt-4 text-3xl font-black">1744</h3>
+
+                <p class="mt-2 text-sm text-slate-400">
+                    First written Laws of Cricket
+                </p>
+
+            </div>
+
+            <div class="rounded-2xl border border-white/10 bg-[#111a24] p-6">
+
+                <i class="fa-solid fa-shield-halved text-2xl text-blue-400"></i>
+
+                <h3 class="mt-4 text-3xl font-black">1877</h3>
+
+                <p class="mt-2 text-sm text-slate-400">
+                    First Men's Test Match
+                </p>
+
+            </div>
+
+            <div class="rounded-2xl border border-white/10 bg-[#111a24] p-6">
+
+                <i class="fa-solid fa-earth-americas text-2xl text-yellow-400"></i>
+
+                <h3 class="mt-4 text-3xl font-black">1971</h3>
+
+                <p class="mt-2 text-sm text-slate-400">
+                    First Men's ODI
+                </p>
+
+            </div>
+
+            <div class="rounded-2xl border border-white/10 bg-[#111a24] p-6">
+
+                <i class="fa-solid fa-bolt text-2xl text-purple-400"></i>
+
+                <h3 class="mt-4 text-3xl font-black">2005</h3>
+
+                <p class="mt-2 text-sm text-slate-400">
+                    First Men's T20 International
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- HISTORY SECTION -->
+    <section id="history" class="mx-auto max-w-7xl px-5 py-16">
+
+        <div class="flex flex-wrap items-end justify-between gap-5">
+
+            <div>
+
+                <p class="text-xs font-bold uppercase tracking-widest text-green-400">
+                    The Beginning
+                </p>
+
+                <h2 class="mt-3 text-3xl font-black sm:text-4xl">
+                    History Of Cricket
+                </h2>
+
+                <p class="mt-3 max-w-2xl leading-7 text-slate-400">
+                    Travel through the important milestones that shaped the sport we know today.
+                </p>
+
+            </div>
+
+            <a href="#explore" class="font-semibold text-green-400 hover:text-green-300">
+
+                Explore Timeline
+
+                <i class="fa-solid fa-arrow-right ml-2"></i>
+
+            </a>
+
+        </div>
+
+
+        <div class="mt-10 grid gap-5 md:grid-cols-3">
+
+            <article class="rounded-2xl border border-white/10 bg-[#111a24] p-6">
+
+                <span class="text-sm font-bold text-green-400">18TH CENTURY</span>
+
+                <h3 class="mt-4 text-xl font-bold">The Early Game</h3>
+
+                <p class="mt-3 text-sm leading-7 text-slate-400">
+                    Cricket developed in England. Its early written Laws were established in 1744.
+                </p>
+
+            </article>
+
+
+            <article class="rounded-2xl border border-white/10 bg-[#111a24] p-6">
+
+                <span class="text-sm font-bold text-blue-400">1877</span>
+
+                <h3 class="mt-4 text-xl font-bold">Test Cricket Begins</h3>
+
+                <p class="mt-3 text-sm leading-7 text-slate-400">
+                    Australia and England played the first recognised Men's Test match in Melbourne.
+                </p>
+
+            </article>
+
+
+            <article class="rounded-2xl border border-white/10 bg-[#111a24] p-6">
+
+                <span class="text-sm font-bold text-yellow-400">1975</span>
+
+                <h3 class="mt-4 text-xl font-bold">First Men's World Cup</h3>
+
+                <p class="mt-3 text-sm leading-7 text-slate-400">
+                    The first Men's Cricket World Cup was held in England, with West Indies winning the title.
+                </p>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- FORMATS SECTION -->
+    <section id="formats" class="border-y border-white/10 bg-[#0d151e]">
+
+        <div class="mx-auto max-w-7xl px-5 py-16">
+
+            <p class="text-xs font-bold uppercase tracking-widest text-green-400">
+                Understand The Game
+            </p>
+
+            <h2 class="mt-3 text-3xl font-black sm:text-4xl">
+                Formats Of Cricket
+            </h2>
+
+            <p class="mt-3 text-slate-400">
+                Three major international formats, each with its own identity.
+            </p>
+
+
+            <div class="mt-10 grid gap-6 md:grid-cols-3">
+
+                <article class="rounded-2xl border border-white/10 bg-[#111a24] p-7 transition hover:-translate-y-1 hover:border-red-400/50">
+
+                    <div class="flex h-14 w-14 items-center justify-center rounded-xl bg-red-500/10 text-3xl text-red-400">
+                        <i class="fa-solid fa-hourglass-half"></i>
+                    </div>
+
+                    <h3 class="mt-6 text-2xl font-bold">Test Cricket</h3>
+
+                    <p class="mt-3 text-sm leading-7 text-slate-400">
+                        The traditional format. A match can last up to five days, with two innings per team.
+                    </p>
+
+                    <span class="mt-5 inline-block rounded-full bg-red-400/10 px-4 py-2 text-xs font-bold text-red-400">
+                        UP TO 5 DAYS
+                    </span>
+
+                </article>
+
+
+                <article class="rounded-2xl border border-white/10 bg-[#111a24] p-7 transition hover:-translate-y-1 hover:border-blue-400/50">
+
+                    <div class="flex h-14 w-14 items-center justify-center rounded-xl bg-blue-500/10 text-3xl text-blue-400">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+
+                    <h3 class="mt-6 text-2xl font-bold">One Day International</h3>
+
+                    <p class="mt-3 text-sm leading-7 text-slate-400">
+                        A limited-overs international format in which each team normally receives 50 overs.
+                    </p>
+
+                    <span class="mt-5 inline-block rounded-full bg-blue-400/10 px-4 py-2 text-xs font-bold text-blue-400">
+                        50 OVERS
+                    </span>
+
+                </article>
+
+
+                <article class="rounded-2xl border border-white/10 bg-[#111a24] p-7 transition hover:-translate-y-1 hover:border-green-400/50">
+
+                    <div class="flex h-14 w-14 items-center justify-center rounded-xl bg-green-500/10 text-3xl text-green-400">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+
+                    <h3 class="mt-6 text-2xl font-bold">T20 International</h3>
+
+                    <p class="mt-3 text-sm leading-7 text-slate-400">
+                        A fast-paced format where each team normally receives 20 overs.
+                    </p>
+
+                    <span class="mt-5 inline-block rounded-full bg-green-400/10 px-4 py-2 text-xs font-bold text-green-400">
+                        20 OVERS
+                    </span>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- RULES SECTION -->
+    <section id="rules" class="mx-auto max-w-7xl px-5 py-16">
+
+        <p class="text-xs font-bold uppercase tracking-widest text-green-400">
+            Learn The Laws
+        </p>
+
+        <h2 class="mt-3 text-3xl font-black sm:text-4xl">
+            Rules & Regulations
+        </h2>
+
+        <p class="mt-3 max-w-2xl leading-7 text-slate-400">
+            Understand how cricket is played, how players get dismissed and how umpires make decisions.
+        </p>
+
+
+        <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+
+            <div class="rounded-2xl border border-white/10 bg-[#111a24] p-6">
+                <i class="fa-solid fa-users text-2xl text-green-400"></i>
+                <h3 class="mt-4 font-bold">Players & Teams</h3>
+                <p class="mt-2 text-sm text-slate-400">Team structure and player roles.</p>
+            </div>
+
+            <div class="rounded-2xl border border-white/10 bg-[#111a24] p-6">
+                <i class="fa-solid fa-baseball-bat-ball text-2xl text-yellow-400"></i>
+                <h3 class="mt-4 font-bold">Batting & Scoring</h3>
+                <p class="mt-2 text-sm text-slate-400">Runs, boundaries, extras and innings.</p>
+            </div>
+
+            <div class="rounded-2xl border border-white/10 bg-[#111a24] p-6">
+                <i class="fa-solid fa-bullseye text-2xl text-blue-400"></i>
+                <h3 class="mt-4 font-bold">Bowling</h3>
+                <p class="mt-2 text-sm text-slate-400">Overs, legal deliveries, wides and no-balls.</p>
+            </div>
+
+            <div class="rounded-2xl border border-white/10 bg-[#111a24] p-6">
+                <i class="fa-solid fa-gavel text-2xl text-purple-400"></i>
+                <h3 class="mt-4 font-bold">Dismissals</h3>
+                <p class="mt-2 text-sm text-slate-400">Bowled, caught, LBW, run out and more.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- EXPLORE SECTION -->
+    <section id="explore" class="mx-auto max-w-7xl px-5 pb-20">
+
+        <div class="rounded-3xl border border-green-400/20 bg-gradient-to-r from-green-950/50 to-[#111a24] p-8 sm:p-12">
+
+            <h2 class="text-3xl font-black">
+                Discover Every Chapter Of Cricket
+            </h2>
+
+            <p class="mt-4 max-w-2xl leading-7 text-slate-400">
+                Explore legendary players, ICC member teams, major tournaments and landmark records.
+            </p>
+
+            <div class="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+
+                <button data-section="players"
+                    class="explore-button rounded-xl border border-white/10 bg-black/20 p-4 text-left transition hover:border-green-400">
+                    <i class="fa-solid fa-user text-green-400"></i>
+                    <span class="ml-2 font-semibold">Legendary Players</span>
+                </button>
+
+                <button data-section="teams"
+                    class="explore-button rounded-xl border border-white/10 bg-black/20 p-4 text-left transition hover:border-green-400">
+                    <i class="fa-solid fa-flag text-green-400"></i>
+                    <span class="ml-2 font-semibold">International Teams</span>
+                </button>
+
+                <button data-section="tournaments"
+                    class="explore-button rounded-xl border border-white/10 bg-black/20 p-4 text-left transition hover:border-green-400">
+                    <i class="fa-solid fa-trophy text-green-400"></i>
+                    <span class="ml-2 font-semibold">Tournaments</span>
+                </button>
+
+                <button data-section="records"
+                    class="explore-button rounded-xl border border-white/10 bg-black/20 p-4 text-left transition hover:border-green-400">
+                    <i class="fa-solid fa-chart-column text-green-400"></i>
+                    <span class="ml-2 font-semibold">Cricket Records</span>
+                </button>
+
+            </div>
+
+            <p id="exploreMessage" class="mt-5 text-sm text-green-300" aria-live="polite"></p>
+
+            <div id="exploreDetails" class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer class="border-t border-white/10 bg-[#0c141d]">
+
+        <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-5 py-8 text-center sm:flex-row">
+
+            <div>
+                <h2 class="text-xl font-black">
+                    CRICKET<span class="text-green-400">VERSE</span>
+                </h2>
+
+                <p class="mt-1 text-xs text-slate-500">
+                    Explore the history. Understand the game.
+                </p>
+            </div>
+
+            <p class="text-xs text-slate-500">
+                Historical information is presented with source references.
+                <br>
+                Records reviewed: 2 November 2026.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
